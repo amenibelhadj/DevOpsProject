@@ -1,5 +1,6 @@
 package tn.esprit.devops_project.service;
-import org.aspectj.lang.annotation.Before;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -23,9 +24,10 @@ public class ProductJunitTesting {
     @Mock
     private StockRepository stockRepository;
 
-    @Before("running")
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        productService = new ProductServiceImpl(productRepository, stockRepository);
     }
 
     @Test
@@ -40,6 +42,9 @@ public class ProductJunitTesting {
         Product savedProduct = productService.addProduct(product, stockId);
 
         assertEquals(stock, savedProduct.getStock());
+
+        // Log success message
+        System.out.println("testAddProduct() test passed: Product added successfully.");
     }
 
     @Test
@@ -53,5 +58,8 @@ public class ProductJunitTesting {
         Product retrievedProduct = productService.retrieveProduct(productId);
 
         assertEquals(product, retrievedProduct);
+
+        // Log success message
+        System.out.println("testRetrieveProduct() test passed: Product retrieved successfully.");
     }
 }

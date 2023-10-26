@@ -1,18 +1,19 @@
 package tn.esprit.devops_project.service;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Mockito;
 import tn.esprit.devops_project.entities.Product;
 import tn.esprit.devops_project.entities.Stock;
 import tn.esprit.devops_project.repositories.ProductRepository;
 import tn.esprit.devops_project.repositories.StockRepository;
 import tn.esprit.devops_project.services.ProductServiceImpl;
-
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-public class ProductMockitoTesting {
 
+public class ProductMockitoTesting {
 
     @InjectMocks
     private ProductServiceImpl productService;
@@ -23,10 +24,13 @@ public class ProductMockitoTesting {
     @Mock
     private StockRepository stockRepository;
 
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        productService = new ProductServiceImpl(productRepository, stockRepository);
     }
 
+    @Test
     public void testAddProduct() {
         Product product = new Product();
         Stock stock = new Stock();
@@ -35,12 +39,15 @@ public class ProductMockitoTesting {
         when(stockRepository.findById(stockId)).thenReturn(java.util.Optional.of(stock));
         when(productRepository.save(product)).thenReturn(product);
 
-        productService.addProduct(product, stockId);
+        Product savedProduct = productService.addProduct(product, stockId);
 
-        verify(stockRepository, Mockito.times(1)).findById(stockId);
-        verify(productRepository, Mockito.times(1)).save(product);
+        assertEquals(stock, savedProduct.getStock());
+
+        // Log success message
+        System.out.println("testAddProduct() test passed: Product saved successfully.");
     }
 
+    @Test
     public void testRetrieveProduct() {
         Long productId = 1L;
         Product product = new Product();
@@ -48,30 +55,11 @@ public class ProductMockitoTesting {
 
         when(productRepository.findById(productId)).thenReturn(java.util.Optional.of(product));
 
-        productService.retrieveProduct(productId);
+        Product retrievedProduct = productService.retrieveProduct(productId);
 
-        verify(productRepository, Mockito.times(1)).findById(productId);
-    }
+        assertEquals(product, retrievedProduct);
 
-    public void testRetrieveAllProduct() {
-        productService.retreiveAllProduct();
-
-        verify(productRepository, Mockito.times(1)).findAll();
-    }
-
-    public void testDeleteProduct() {
-        Long productId = 1L;
-
-        productService.deleteProduct(productId);
-
-        verify(productRepository, Mockito.times(1)).deleteById(productId);
-    }
-
-    public void testRetrieveProductStock() {
-        Long stockId = 1L;
-
-        productService.retreiveProductStock(stockId);
-
-        verify(productRepository, Mockito.times(1)).findByStockIdStock(stockId);
+        // Log success message
+        System.out.println("testRetrieveProduct() test passed: Product retrieved successfully.");
     }
 }
