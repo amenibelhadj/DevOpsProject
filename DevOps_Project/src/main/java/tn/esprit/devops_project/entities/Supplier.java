@@ -30,7 +30,8 @@ public class Supplier implements Serializable {
 	Set<Invoice> invoices;
 	@ManyToMany
 	private Set<ActivitySector> activitySectors;
-    
 
-	
+
+	public Supplier(long l, String s) {
+	}
 }
