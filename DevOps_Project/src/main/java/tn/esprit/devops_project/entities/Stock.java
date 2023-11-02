@@ -1,5 +1,6 @@
 package tn.esprit.devops_project.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -18,6 +19,7 @@ public class Stock implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idStock;
     String title;
+    @JsonIgnore
     @OneToMany(mappedBy = "stock")
     Set<Product> products;
 }
