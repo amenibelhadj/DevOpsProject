@@ -16,7 +16,7 @@ services:
     container_name: achat-backend-app
     depends_on:
       - mysqldb
-    image: meriem123/devops:1.0
+    image: meriem123/devops:2.1
     restart: on-failure
     ports:
       - "8089:8089"
