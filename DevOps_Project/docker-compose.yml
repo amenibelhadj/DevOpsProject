@@ -12,8 +12,8 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-  achat-backend-app:
-    container_name: achat-backend-app
+  devops-backend-app:
+    container_name: devops-backend-app
     depends_on:
       - mysqldb
     image: meriem123/devops:2.1
