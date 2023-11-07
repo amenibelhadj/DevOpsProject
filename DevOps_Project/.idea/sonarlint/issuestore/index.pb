@@ -27,3 +27,6 @@ B
 DevOps_Project.iml,d\a\da34f6fa74476a78b3e9827aca72838d81cffc72
 Å
 Q.idea/sonarlint/securityhotspotstore/6/6/667025ffe5d4e278e0a1dde833fb1d3bfecaa00c,f\0\f0426c3f24edae2a552a282b9d6710a2c109160e
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
