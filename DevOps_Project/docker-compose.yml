@@ -24,7 +24,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/devops?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=
- devops-frontend-app:
+  devops-frontend-app:
     container_name: devops-frontend-app
     image: meriem123/front-devops:1.0
     restart: on-failure
