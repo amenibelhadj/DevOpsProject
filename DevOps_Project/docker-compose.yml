@@ -16,7 +16,7 @@ services:
     container_name: devops-backend-app
     depends_on:
       - mysqldb
-    image: daniaaa/devops:2.1
+    image: daniaaa/devops
     restart: on-failure
     ports:
       - "8089:8089"
