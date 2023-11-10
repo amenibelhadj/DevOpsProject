@@ -1,11 +1,3 @@
 
-°
-java:S3577"’Rename class "ProductJunitTesting" to match the regular expression: '^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$'(ı¤Õò8µ”®Ÿ¶1
-‡
-java:S5826"eAnnotate this method with JUnit5 '@org.junit.jupiter.api.BeforeEach' or rename it to avoid confusion.(•¨ó­úÿÿÿÿ8µ”®Ÿ¶1
-@
-java:S5786 "Remove this 'public' modifier.(‘©Ç´úÿÿÿÿ8¶”®Ÿ¶1
-;
-java:S5786."Remove this 'public' modifier.(É•¹¸8¶”®Ÿ¶1
-;
-java:S5786"Remove this 'public' modifier.(ı¤Õò8¶”®Ÿ¶1
+G	java:S106/"+Replace this use of System.out by a logger.(ÑæøÆ8Í¼Ó»1
+L	java:S106?"+Replace this use of System.out by a logger.(“²Š‰şÿÿÿÿ8–Í¼Ó»1
