@@ -30,3 +30,5 @@ Q.idea/sonarlint/securityhotspotstore/6/6/667025ffe5d4e278e0a1dde833fb1d3bfecaa0
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
