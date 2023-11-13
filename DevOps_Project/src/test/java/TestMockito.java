@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @ExtendWith(MockitoExtension.class)
-public class TestMockito {
+ class TestMockito {
 
     @InjectMocks
     private StockServiceImpl stockService;
@@ -37,7 +37,7 @@ public class TestMockito {
     }
 
     @Test
-    public void testAddStock() {
+     void testAddStock() {
         Stock stockToAdd = new Stock(); // create a Stock object for testing
         Mockito.when(stockRepository.save(stockToAdd)).thenReturn(stockToAdd); // Mock the save method
 
@@ -47,7 +47,7 @@ public class TestMockito {
     }
 
     @Test
-    public void testRetrieveStock() {
+     void testRetrieveStock() {
         Long stockId = 1L;
         Stock stockToRetrieve = new Stock();
         Mockito.when(stockRepository.findById(stockId)).thenReturn(Optional.of(stockToRetrieve)); // Mock the findById method
@@ -60,7 +60,7 @@ public class TestMockito {
 
 
     @Test
-    public void testRetrieveAllStock() {
+     void testRetrieveAllStock() {
         Stock stock1 = new Stock();
         Stock stock2 = new Stock();
         List<Stock> stockList = Arrays.asList(stock1, stock2);
