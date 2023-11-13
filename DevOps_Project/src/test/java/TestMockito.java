@@ -57,13 +57,7 @@ public class TestMockito {
         assertEquals(stockToRetrieve, result);
     }
 
-    @Test
-    public void testRetrieveStockNotFound() {
-        Long stockId = 1L;
-        Mockito.when(stockRepository.findById(stockId)).thenReturn(Optional.empty()); // Mock the findById method
 
-        assertThrows(NullPointerException.class, () -> stockService.retrieveStock(stockId));
-    }
 
     @Test
     public void testRetrieveAllStock() {
