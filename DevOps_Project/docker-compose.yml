@@ -12,7 +12,7 @@ services:
       "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     ports:
-      - "6868:8089"  # Map your application's port to the host
+      - "8089:8089"  # Map your application's port to the host
     depends_on:
       - mysqldb  # Ensure the MySQL service is started before the application
     volumes:
@@ -25,7 +25,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_DATABASE: devops
     ports:
-      - "3307:3306"  # Map MySQL's port to the host
+      - "3306:3306"  # Map MySQL's port to the host
 
     volumes:
       - db:/var/lib/mysql

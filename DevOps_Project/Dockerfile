@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:8
 EXPOSE 8089
-ADD target/gestion-stock-ski-1.0.jar gestion-stock-ski-1.0.jar
-ENTRYPOINT ["java","-jar","/gestion-stock-ski-1.0.jar"]
+ADD target/DevOps_Project-2.1.jar DevOps_Project-2.1.jar
+ENTRYPOINT ["java","-jar","/stock-devops-1.0.jar"]
