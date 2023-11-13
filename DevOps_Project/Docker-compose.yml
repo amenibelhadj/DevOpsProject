@@ -1,0 +1,29 @@
+version: '3'
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=devops
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+
+  devops-backend-app:
+    container_name: devops-backend-app
+    depends_on:
+      - mysqldb
+    image: icyhell/devops:2.1
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/devops?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+
+volumes:
+  db:
