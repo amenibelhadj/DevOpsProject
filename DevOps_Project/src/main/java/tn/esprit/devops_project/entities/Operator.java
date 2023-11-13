@@ -2,6 +2,7 @@ package tn.esprit.devops_project.entities;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
