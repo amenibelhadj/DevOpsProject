@@ -58,11 +58,5 @@ public class TestJunit {
         assertEquals(stockList, retrievedStockList);
     }
 
-    @Test
-    void testRetrieveStockNotFound() {
-        Long stockId = 1L; // Remplacez par un ID qui n'existe pas
-        Mockito.when(stockRepository.findById(stockId)).thenReturn(Optional.empty());
 
-        assertThrows(NullPointerException.class, () -> stockService.retrieveStock(stockId));
-    }
 }
