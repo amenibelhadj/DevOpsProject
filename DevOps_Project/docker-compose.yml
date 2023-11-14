@@ -22,7 +22,7 @@ services:
     container_name: mysqldb
     image: mysql:5.7  # You can use a different version if needed
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: devops
     ports:
       - "3306:3306"  # Map MySQL's port to the host
