@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  mysqldb:
     image: mysql:5.7
     container_name: mysql_container
     environment:
@@ -21,7 +21,7 @@ services:
       - mysql
     environment:
       SPRING_APPLICATION_JSON: '{
-            "spring.datasource.url" : "jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true",
+            "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true",
             "spring.datasource.username" : "root",
             "spring.datasource.password" : "root",
             "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
