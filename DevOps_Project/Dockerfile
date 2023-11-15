@@ -3,5 +3,5 @@ EXPOSE 8089
 ADD target/*.jar DevOps_Project.jar
 
 
-ENTRYPOINT ["java","-jar","/DevOps_Project.jar"]
+ENTRYPOINT ["java","-jar","/DevOps_Project-2.1.jar"]
 
