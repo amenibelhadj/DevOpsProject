@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ActivitySectorController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">DevOps_Project</a> &gt; <a href="index.source.html" class="el_package">tn.esprit.devops_project.controllers</a> &gt; <span class="el_source">ActivitySectorController.java</span></div><h1>ActivitySectorController.java</h1><pre class="source lang-java linenums">package tn.esprit.devops_project.controllers;
+
+
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import tn.esprit.devops_project.entities.ActivitySector;
+import tn.esprit.devops_project.services.Iservices.IActivitySector;
+
+import java.util.List;
+
+@RestController
+<span class="nc" id="L12">@AllArgsConstructor</span>
+public class ActivitySectorController {
+
+    IActivitySector activitySectorService;
+
+    @GetMapping(&quot;/activitySector&quot;)
+    List&lt;ActivitySector&gt; retrieveAllActivitySectors(){
+<span class="nc" id="L19">        return activitySectorService.retrieveAllActivitySectors();</span>
+    }
+
+    @PostMapping(&quot;/activitySector&quot;)
+    ActivitySector addActivitySector(@RequestBody ActivitySector activitySector){
+<span class="nc" id="L24">        return activitySectorService.addActivitySector(activitySector);</span>
+    }
+
+    @DeleteMapping(&quot;/activitySector/{id}&quot;)
+    void deleteActivitySector(@PathVariable Long id){
+<span class="nc" id="L29">        activitySectorService.deleteActivitySector(id);</span>
+<span class="nc" id="L30">    }</span>
+
+    @PutMapping(&quot;/activitySector&quot;)
+    ActivitySector updateActivitySector(@RequestBody ActivitySector activitySector){
+<span class="nc" id="L34">        return activitySectorService.updateActivitySector(activitySector);</span>
+    }
+
+    @GetMapping(&quot;/activitySector/{id}&quot;)
+    ActivitySector retrieveActivitySector(@PathVariable Long id){
+<span class="nc" id="L39">        return activitySectorService.retrieveActivitySector(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

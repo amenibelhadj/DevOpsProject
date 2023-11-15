@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">DevOps_Project</a> &gt; <a href="index.source.html" class="el_package">tn.esprit.devops_project.services</a> &gt; <span class="el_source">ProductServiceImpl.java</span></div><h1>ProductServiceImpl.java</h1><pre class="source lang-java linenums">package tn.esprit.devops_project.services;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import tn.esprit.devops_project.services.Iservices.IProductService;
+import tn.esprit.devops_project.entities.Product;
+import tn.esprit.devops_project.entities.ProductCategory;
+import tn.esprit.devops_project.entities.Stock;
+import tn.esprit.devops_project.repositories.ProductRepository;
+import tn.esprit.devops_project.repositories.StockRepository;
+
+import java.util.List;
+
+@Service
+<span class="nc" id="L16">@AllArgsConstructor</span>
+<span class="nc" id="L17">@Slf4j</span>
+public class ProductServiceImpl implements IProductService {
+
+   final ProductRepository productRepository;
+   final StockRepository stockRepository;
+
+    @Override
+    public Product addProduct(Product product, Long idStock) {
+<span class="nc" id="L25">        Stock stock = stockRepository.findById(idStock).orElseThrow(() -&gt; new NullPointerException(&quot;stock not found&quot;));</span>
+<span class="nc" id="L26">        product.setStock(stock);</span>
+<span class="nc" id="L27">        return productRepository.save(product);</span>
+    }
+
+    @Override
+    public Product retrieveProduct(Long id) {
+<span class="nc" id="L32">        return productRepository.findById(id).orElseThrow(() -&gt; new NullPointerException(&quot;Product not found&quot;));</span>
+    }
+
+    @Override
+    public List&lt;Product&gt; retreiveAllProduct() {
+<span class="nc" id="L37">        return productRepository.findAll();</span>
+    }
+
+    @Override
+    public List&lt;Product&gt; retrieveProductByCategory(ProductCategory category) {
+<span class="nc" id="L42">        return productRepository.findByCategory(category);</span>
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+<span class="nc" id="L47">        productRepository.deleteById(id);</span>
+<span class="nc" id="L48">    }</span>
+
+    @Override
+    public List&lt;Product&gt; retreiveProductStock(Long id) {
+<span class="nc" id="L52">        return productRepository.findByStockIdStock(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
