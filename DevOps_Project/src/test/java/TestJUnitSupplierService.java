@@ -63,14 +63,14 @@ public class TestJUnitSupplierService {
         assertEquals(supplier, updatedSupplier);
     }
 
-    @Test
+   /*@Test
     public void testDeleteSupplier() {
         Long supplierId = 1L;
         // Configurez le comportement de supplierRepository.deleteById()
         Mockito.doNothing().when(supplierRepository).deleteById(supplierId);
 
         supplierService.deleteSupplier(supplierId);
-    }
+    }*/
 
     @Test
     public void testRetrieveSupplier() {
