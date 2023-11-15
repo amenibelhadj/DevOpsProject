@@ -1,35 +1,34 @@
-version: '3'
+version: "3"
 services:
-  mysqldb:
-    image: mysql:5.7
-    container_name: mysql_container
+  app:
+    container_name: StationSki
+    image: mohaamedamine/backend  # Replace with the actual image and tag
+    restart: on-failure
     environment:
+      SPRING_APPLICATION_JSON: '{
+      "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true",
+      "spring.datasource.username" : "root",
+      "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+      "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    ports:
+      - "8089:8089"  # Map your application's port to the host
+    depends_on:
+      - mysqldb  # Ensure the MySQL service is started before the application
+    volumes:
+      - app_data:/app/data
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_DATABASE: devops
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD : root 
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-
-  spring-app:
-    image: mohaamedamine/backend
-    container_name: spring_app_container
-    ports:
-      - "8089:8089"
-    depends_on:
-      - mysqldb
-    environment:
-      SPRING_APPLICATION_JSON: '{
-            "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true",
-            "spring.datasource.username" : "root",
-            "spring.datasource.password" : "root",
-            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-            "spring.jpa.hibernate.ddl-auto" : "update"
-      }'
-    volumes:
-       - app_data:/app/data
+      - db:/var/lib/mysql
 
 volumes:
-  mysql_data:
-  app_data:
+    app_data:  # Define the app_data volume
+    db:
