@@ -13,16 +13,12 @@ Q.idea/sonarlint/securityhotspotstore/3/7/37da3a582c4e9adb3ac6c9b72cd2f8a4e18d71
 Q.idea/sonarlint/securityhotspotstore/2/7/27658383cebd776fd2668925391f67eda5298db7,c\f\cfaeecfdc13b6e286456ca333902bed9ff3e2aa0
 Å
 Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,2\c\2cabb939da04d3de3a200bf2b575690e1a16316d
-Å
-Q.idea/sonarlint/securityhotspotstore/2/4/244770f38f363510404362ca46a4d6485b01b205,e\b\eb664d5530ca5e7148a97fba756d585c6063db14
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 B
 DevOps_Project.iml,d\a\da34f6fa74476a78b3e9827aca72838d81cffc72
-Å
-Q.idea/sonarlint/securityhotspotstore/6/6/667025ffe5d4e278e0a1dde833fb1d3bfecaa00c,f\0\f0426c3f24edae2a552a282b9d6710a2c109160e
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
