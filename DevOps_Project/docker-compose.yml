@@ -26,7 +26,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=
   devops-frontend-app:
     container_name: devops-frontend-app
-    image: amenibelhadj/front-devops:1.0
+    image: belhadjameni/front-devops:1.0
     restart: on-failure
     ports:
       - "80:80"
