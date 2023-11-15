@@ -19,8 +19,15 @@ services:
     depends_on:
       - mysql
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true
-      SPRING_DATASOURCE_USERNAME: root
+      SPRING_APPLICATION_JSON: '{
+            "spring.datasource.url" : "jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true",
+            "spring.datasource.username" : "root",
+            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+            "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    volumes:
+       - app_data:/app/data
 
 volumes:
   mysql_data:
+  app_data:
