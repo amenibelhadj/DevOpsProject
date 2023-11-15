@@ -17,8 +17,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
-Å
-Q.idea/sonarlint/securityhotspotstore/5/c/5c594b15b39b866bc4dbcbc45d84e4185332f174,3\1\31a58f3b17db4f0ba6cd34afc0d49b9b24940d49
 B
 DevOps_Project.iml,d\a\da34f6fa74476a78b3e9827aca72838d81cffc72
 Å
@@ -100,3 +98,5 @@ w
 Gsrc/main/java/tn/esprit/devops_project/controllers/StockController.java,5\e\5e469466691a1a2e95158175485b0fb5b82f7bb2
 L
 src/test/java/TestJunit.java,1\3\13e030778dd034a61c9cd8c0d439800626fa46f1
+Å
+Q.idea/sonarlint/securityhotspotstore/1/3/13e030778dd034a61c9cd8c0d439800626fa46f1,3\f\3f72e39d9c8d7dd8cd61375d3ce85b3817953e1d
