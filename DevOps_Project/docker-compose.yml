@@ -13,7 +13,7 @@ services:
              "spring.jpa.hibernate.ddl-auto" : "update",
             "spring.jpa.properties.hi
     ports:
-      - "8089:8089"  # Map your application's port to the host
+      - "8089:8089"
     depends_on:
       - mysqldb  # Ensure the MySQL service is started before the application
     volumes:
