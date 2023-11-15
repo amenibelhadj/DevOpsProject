@@ -1,5 +1,3 @@
-package tn.esprit.devops_project.service;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,10 +25,10 @@ public class TestJUnitSupplierService {
     @Mock
     private SupplierRepository supplierRepository;
 
-    @Before
+   /* @Before
     public void setUp() {
         // Créez des données fictives pour les tests
-    }
+    }*/
 
     @Test
     public void testRetrieveAllSuppliers() {
@@ -65,14 +63,14 @@ public class TestJUnitSupplierService {
         assertEquals(supplier, updatedSupplier);
     }
 
- /*   @Test
+    @Test
     public void testDeleteSupplier() {
         Long supplierId = 1L;
         // Configurez le comportement de supplierRepository.deleteById()
         Mockito.doNothing().when(supplierRepository).deleteById(supplierId);
 
         supplierService.deleteSupplier(supplierId);
-    }*/
+    }
 
     @Test
     public void testRetrieveSupplier() {
