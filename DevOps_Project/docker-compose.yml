@@ -1,22 +1,6 @@
-version: "3"
+version: '3'
 services:
-  app:
-    container_name: backend
-    image: mohaamedamine/backend  # Replace with the actual image and tag
-    restart: on-failure
-   environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
-    ports:
-      - "8089:8089"  # Map your application's port to the host
-    depends_on:
-      - mysqldb  # Ensure the MySQL service is started before the application
-    volumes:
-      - app_data:/app/data
-
-  mysqldb:
-    container_name: mysqldb
+  mysql:
     image: mysql:5.7
     container_name: mysql_container
     environment:
@@ -26,12 +10,20 @@ services:
       MYSQL_PASSWORD: admin
     ports:
       - "3306:3306"
-
     volumes:
-      - db:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
 
-
-
+  spring-app:
+    image: mohaamedamine/backend
+    container_name: spring_app_container
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+ 
 volumes:
-  app_data:  # Define the app_data volume
-  db:
+  mysql_data:
