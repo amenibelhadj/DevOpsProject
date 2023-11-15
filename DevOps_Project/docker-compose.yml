@@ -7,7 +7,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: devops
       MYSQL_USER: admin
-      MYSQL_PASSWORD: root
+      MYSQL_PASSWORD: 
     ports:
       - "3306:3306"
     volumes:
@@ -23,7 +23,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_PASSWORD: 
 
 volumes:
   mysql_data:
