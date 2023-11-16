@@ -22,8 +22,8 @@ services:
     container_name: mysqldb
     image: mysql:5.7
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD= yes
-      MYSQL_DATABASE= stationSki
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # Note the correct syntax
+      MYSQL_DATABASE: "stationSki"  # Note the correct syntax
     ports:
       - "3306:3306"
     volumes:
