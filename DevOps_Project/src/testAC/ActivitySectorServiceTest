@@ -1,0 +1,109 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import tn.esprit.devops_project.entities.ActivitySector;
+import tn.esprit.devops_project.repositories.ActivitySectorRepository;
+import tn.esprit.devops_project.services.ActivitySectorImpl;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class ActivitySectorServiceTest {
+
+    @Mock
+    private ActivitySectorRepository activitySectorRepository;
+
+    @InjectMocks
+    private ActivitySectorImpl activitySectorService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testRetrieveAllActivitySectors() {
+        // Mocking
+        when(activitySectorRepository.findAll()).thenReturn(Arrays.asList(new ActivitySector(), new ActivitySector()));
+
+        // Test
+        List<ActivitySector> sectors = activitySectorService.retrieveAllActivitySectors();
+
+        // Verify
+        assertEquals(2, sectors.size());
+    }
+
+    @Test
+    public void testAddActivitySector() {
+        // Mocking
+        ActivitySector activitySector = new ActivitySector();
+        when(activitySectorRepository.save(activitySector)).thenReturn(activitySector);
+
+        // Test
+        ActivitySector result = activitySectorService.addActivitySector(activitySector);
+
+        // Verify
+        assertEquals(activitySector, result);
+    }
+
+    @Test
+    public void testDeleteActivitySector() {
+        // Test
+        activitySectorService.deleteActivitySector(1L);
+
+        // Verify
+        verify(activitySectorRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    public void testUpdateActivitySector() {
+        // Mocking
+        ActivitySector activitySector = new ActivitySector();
+        when(activitySectorRepository.save(activitySector)).thenReturn(activitySector);
+
+        // Test
+        ActivitySector result = activitySectorService.updateActivitySector(activitySector);
+
+        // Verify
+        assertEquals(activitySector, result);
+    }
+
+    @Test
+    public void testRetrieveActivitySector() {
+        // Mocking
+        ActivitySector activitySector = new ActivitySector();
+        when(activitySectorRepository.findById(1L)).thenReturn(Optional.of(activitySector));
+
+        // Test
+        ActivitySector result = activitySectorService.retrieveActivitySector(1L);
+
+        // Verify
+        assertEquals(activitySector, result);
+    }
+
+    @Test
+    public void testRetrieveActivitySectorNotFound() {
+        // Mocking
+        when(activitySectorRepository.findById(1L)).thenReturn(Optional.empty());
+
+        // Test
+        assertThrows(IllegalArgumentException.class, () -> activitySectorService.retrieveActivitySector(1L));
+    }
+
+    @Test
+    public void testRetrieveAllActivitySectorsEmptyList() {
+        // Mocking
+        when(activitySectorRepository.findAll()).thenReturn(Collections.emptyList());
+
+        // Test
+        List<ActivitySector> sectors = activitySectorService.retrieveAllActivitySectors();
+
+        // Verify
+        assertTrue(sectors.isEmpty());
+    }
+}
