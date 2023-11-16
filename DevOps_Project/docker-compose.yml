@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   app:
     container_name: stationSki
@@ -6,15 +7,16 @@ services:
     restart: on-failure
     environment:
       SPRING_APPLICATION_JSON: '{
-      "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/stationSki?createDatabaseIfNotExist=true",
-      "spring.datasource.username" : "root",
-      "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-      "spring.jpa.hibernate.ddl-auto" : "update"
+        "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/stationSki?createDatabaseIfNotExist=true",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "",  # Empty password
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     ports:
-      - "8089:8089"  # Map your application's port to the host
+      - "8089:8089"
     depends_on:
-      - mysqldb  # Ensure the MySQL service is started before the application
+      - mysqldb
     volumes:
       - app_data:/app/data
 
@@ -22,14 +24,13 @@ services:
     container_name: mysqldb
     image: mysql:5.7
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # Note the correct syntax
-      MYSQL_DATABASE: "stationSki"  # Note the correct syntax
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # Allow empty password for root
+      MYSQL_DATABASE: "stationSki"
     ports:
       - "3306:3306"
     volumes:
       - db:/var/lib/mysql
 
-
 volumes:
-    app_data:  # Define the app_data volume
-    db:
+  app_data:
+  db:
