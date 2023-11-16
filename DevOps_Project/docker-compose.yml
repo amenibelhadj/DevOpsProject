@@ -1,36 +1,37 @@
 version: "3"
-
 services:
   app:
-    container_name: stationSki
-    image: mohaamedamine/backend  # Remplacez par l'image et le tag réels
+    container_name: backend
+    image: mohaamedamine/backend  # Replace with the actual image and tag
     restart: on-failure
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/stationSki?createDatabaseIfNotExist=true",
-        "spring.datasource.username" : "root",
-        "spring.datasource.password" : "root",  # Définissez le mot de passe souhaité
-        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-        "spring.jpa.hibernate.ddl-auto" : "update"
+      "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true",
+      "spring.datasource.username" : "root",
+      "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+      "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     ports:
-      - "8089:8089"
+      - "8082:8082"  # Map your application's port to the host
     depends_on:
-      - mysqldb
+      - mysqldb  # Ensure the MySQL service is started before the application
     volumes:
       - app_data:/app/data
 
   mysqldb:
     container_name: mysqldb
-    image: mysql:5.7
+    image: mysql:5.7  # You can use a different version if needed
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # Autoriser un mot de passe vide pour root
-      MYSQL_DATABASE: "stationSki"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: devops
     ports:
-      - "3306:3306"
+      - "3306:3306"  # Map MySQL's port to the host
+
     volumes:
       - db:/var/lib/mysql
 
+
+
 volumes:
-  app_data:
+  app_data:  # Define the app_data volume
   db:
